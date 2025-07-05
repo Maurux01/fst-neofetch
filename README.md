@@ -1,28 +1,28 @@
 # fst-neofetch
 
-Este repositorio contiene configuraciones personalizadas para Fastfetch y Neofetch con colores vibrantes, bloques de color y soporte para íconos (Nerd Font).
+This repository contains custom configurations for Fastfetch and Neofetch with vibrant colors, color blocks, and Nerd Font icon support.
 
-## Archivos incluidos
+## Included Files
 
-- `fastfetch-config.jsonc`: Configuración para Fastfetch
-- `neofetch-config.conf`: Configuración para Neofetch
+- `fastfetch-config.jsonc`: Configuration for Fastfetch
+- `neofetch-config.conf`: Configuration for Neofetch
 
-## Instalación
+## Installation
 
-1. Copia el archivo `fastfetch-config.jsonc` a `~/.config/fastfetch/config.jsonc`:
+1. Copy the `fastfetch-config.jsonc` file to `~/.config/fastfetch/config.jsonc`:
    ```sh
    mkdir -p ~/.config/fastfetch
    cp fastfetch-config.jsonc ~/.config/fastfetch/config.jsonc
    ```
-2. Copia el archivo `neofetch-config.conf` a `~/.config/neofetch/config.conf`:
+2. Copy the `neofetch-config.conf` file to `~/.config/neofetch/config.conf`:
    ```sh
    mkdir -p ~/.config/neofetch
    cp neofetch-config.conf ~/.config/neofetch/config.conf
    ```
 
-## Requisitos
-- Fuente Nerd Font instalada y configurada en tu terminal.
-- Terminal con soporte para colores verdaderos y, opcionalmente, transparencia.
+## Requirements
+- Nerd Font installed and set in your terminal.
+- Terminal with true color support and, optionally, transparency.
 
-## Uso
-- Ejecuta `fastfetch` o `neofetch` en tu terminal para ver la información del sistema con la configuración personalizada.
+## Usage
+- Run `fastfetch` or `neofetch` in your terminal to see your system information with the custom configuration.
