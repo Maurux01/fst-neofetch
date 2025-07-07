@@ -1,7 +1,10 @@
 {
   "logo": {
-    "type": "auto",
-    "colors": ["#7aa2f7", "#f7768e", "#bb9af7", "#7dcfff", "#e0af68", "#9ece6a"]
+    "type": "file",
+    "path": "/home/$(whoami)/Pictures/random.png",
+    "preserveAspectRatio": true,
+    "width": 40,
+    "height": 20
   },
   "display": [
     "title",
