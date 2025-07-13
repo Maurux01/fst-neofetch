@@ -3,68 +3,58 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Platform: Linux](https://img.shields.io/badge/platform-linux-blue.svg)](https://www.linux.org/)
 
-Custom vibrant configs for [Fastfetch](https://github.com/fastfetch-cli/fastfetch) and [Neofetch](https://github.com/dylanaraps/neofetch) with color blocks and Nerd Font icon support.
+Config vibrante para [Fastfetch](https://github.com/fastfetch-cli/fastfetch) y [Neofetch](https://github.com/dylanaraps/neofetch) con bloques de color, iconos Nerd Font y soporte para mostrar una imagen aleatoria.
+
+---
+
+## Instalación rápida en Linux
+
+1. **Clona este repositorio y entra a la carpeta:**
+   ```sh
+   git clone https://github.com/tuusuario/fst-neofetch.git
+   cd fst-neofetch
+   ```
+2. **Ejecuta el instalador:**
+   ```sh
+   bash install-fst-neofetch.sh
+   ```
+   Esto instalará fastfetch y neofetch (si no los tienes), copiará las configuraciones y dejará una imagen de ejemplo en tu carpeta `~/Pictures`.
+
+---
+
+## ¿Cómo usarlo?
+
+1. **Agrega tus imágenes favoritas (PNG, JPG, JPEG) a `~/Pictures`** para que se muestren aleatoriamente.
+2. **Para mostrar una imagen aleatoria con neofetch:**
+   ```sh
+   bash -c 'RANDOM_IMG="$(find "$HOME/Pictures" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | shuf -n 1)"; cp "$RANDOM_IMG" "$HOME/Pictures/random.png"; neofetch'
+   ```
+3. **Para mostrar una imagen aleatoria con fastfetch:**
+   ```sh
+   bash -c 'RANDOM_IMG="$(find "$HOME/Pictures" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | shuf -n 1)"; cp "$RANDOM_IMG" "$HOME/Pictures/random.png"; fastfetch'
+   ```
+
+Puedes poner estos comandos en un alias o script para mayor comodidad.
 
 ---
 
 ## Preview
 
-Below is an example of how your terminal will look with these configs:
+Así se verá tu terminal (ver `screenshot.png` si está disponible):
 
-![Fastfetch and Neofetch Preview](./screenshot.png)
-
-> Make sure you are using a Nerd Font and a terminal with true color support for best results!
+> ¡Asegúrate de usar una Nerd Font y un terminal con soporte de color verdadero para el mejor resultado!
 
 ---
 
-## Included Files
+## Créditos
 
-- `fastfetch-config.jsonc`: Configuration for Fastfetch
-- `neofetch-config.conf`: Configuration for Neofetch
-
----
-
-## Installation
-
-1. **Install a Nerd Font:**  
-   [Nerd Fonts Downloads](https://www.nerdfonts.com/font-downloads)
-2. **Set the Nerd Font in your terminal preferences.**
-3. **Copy the configs:**
-   ```sh
-   mkdir -p ~/.config/fastfetch
-   cp fastfetch-config.jsonc ~/.config/fastfetch/config.jsonc
-
-   mkdir -p ~/.config/neofetch
-   cp neofetch-config.conf ~/.config/neofetch/config.conf
-   ```
-4. **Run in your terminal:**
-   ```sh
-   fastfetch
-   neofetch
-   ```
-
----
-
-## Troubleshooting
-
-- **Icons look weird or are missing?**  
-  Make sure you have a Nerd Font selected in your terminal.
-- **Colors look dull?**  
-  Use a terminal with true color support (e.g., kitty, alacritty, wezterm).
-- **Still not working?**  
-  Restart your terminal after changing the font.
-
----
-
-## Credits
-
-- Inspired by the Arch Linux and TokyoNight themes.
+- Inspirado en Arch Linux y TokyoNight.
 - [Fastfetch](https://github.com/fastfetch-cli/fastfetch)
 - [Neofetch](https://github.com/dylanaraps/neofetch)
 - [Nerd Fonts](https://www.nerdfonts.com/)
 
 ---
 
-## License
+## Licencia
 
-This project is licensed under the [MIT License](LICENSE).
+Este proyecto está bajo la [Licencia MIT](LICENSE).
