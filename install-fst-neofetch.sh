@@ -36,19 +36,24 @@ cp neofetch-config.conf ~/.config/neofetch/config.conf
 
 echo -e "${GREEN}Configuraciones copiadas a ~/.config/fastfetch y ~/.config/neofetch${NC}"
 
-# Crear carpeta de imágenes
+# Crear carpeta de imágenes y subcarpeta iconos
 PICTURES="$HOME/Pictures"
-mkdir -p "$PICTURES"
+ICONOS="$PICTURES/iconos"
+mkdir -p "$PICTURES" "$ICONOS"
 
-# Descargar imagen de ejemplo si no hay ninguna
-if ! find "$PICTURES" -maxdepth 1 -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' | grep -q .; then
-    echo -e "${YELLOW}No se encontraron imágenes en $PICTURES. Descargando una de ejemplo...${NC}"
-    wget -O "$PICTURES/random.png" https://upload.wikimedia.org/wikipedia/commons/a/a7/Archlinux-icon-crystal-64.svg || true
+# Copiar todos los archivos de imagen del repositorio a la carpeta iconos
+echo -e "${GREEN}Copiando iconos del repositorio a $ICONOS...${NC}"
+find . -maxdepth 1 -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.svg" -o -iname "*.gif" \) -exec cp {} "$ICONOS/" \;
+
+# Si no hay iconos en el repositorio, descargar uno de ejemplo
+if [ ! "$(ls -A $ICONOS)" ]; then
+    echo -e "${YELLOW}No se encontraron iconos en el repositorio. Descargando uno de ejemplo...${NC}"
+    wget -O "$ICONOS/arch-icon.png" https://upload.wikimedia.org/wikipedia/commons/a/a7/Archlinux-icon-crystal-64.svg || true
 fi
 
 echo -e "${GREEN}¡Listo!${NC}"
 echo -e "\nPara usar una imagen aleatoria con neofetch o fastfetch, ejecuta:\n"
-echo -e "${YELLOW}bash -c 'RANDOM_IMG=\"$(find \"$HOME/Pictures\" -type f \( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" \) | shuf -n 1)\"; cp \"$RANDOM_IMG\" \"$HOME/Pictures/random.png\"; neofetch'${NC}"
+echo -e "${YELLOW}bash -c 'RANDOM_IMG=\"$(find \"$ICONOS\" -type f \( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" -o -iname \"*.svg\" -o -iname \"*.gif\" \) | shuf -n 1)\"; cp \"$RANDOM_IMG\" \"$HOME/Pictures/random.png\"; neofetch'${NC}"
 echo -e "\no\n"
-echo -e "${YELLOW}bash -c 'RANDOM_IMG=\"$(find \"$HOME/Pictures\" -type f \( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" \) | shuf -n 1)\"; cp \"$RANDOM_IMG\" \"$HOME/Pictures/random.png\"; fastfetch'${NC}"
-echo -e "\nPuedes agregar tus propias imágenes a $PICTURES para personalizar aún más tu fetch.\n" 
+echo -e "${YELLOW}bash -c 'RANDOM_IMG=\"$(find \"$ICONOS\" -type f \( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" -o -iname \"*.svg\" -o -iname \"*.gif\" \) | shuf -n 1)\"; cp \"$RANDOM_IMG\" \"$HOME/Pictures/random.png\"; fastfetch'${NC}"
+echo -e "\nPuedes agregar tus propios iconos a $ICONOS para personalizar aún más tu fetch.\n" 

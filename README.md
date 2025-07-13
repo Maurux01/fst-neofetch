@@ -18,20 +18,20 @@ Config vibrante para [Fastfetch](https://github.com/fastfetch-cli/fastfetch) y [
    ```sh
    bash install-fst-neofetch.sh
    ```
-   Esto instalará fastfetch y neofetch (si no los tienes), copiará las configuraciones y dejará una imagen de ejemplo en tu carpeta `~/Pictures`.
+   Esto instalará fastfetch y neofetch (si no los tienes), copiará las configuraciones y creará la carpeta `~/Pictures/iconos` con los iconos del repositorio.
 
 ---
 
 ## ¿Cómo usarlo?
 
-1. **Agrega tus imágenes favoritas (PNG, JPG, JPEG) a `~/Pictures`** para que se muestren aleatoriamente.
+1. **Agrega tus iconos favoritos (PNG, JPG, JPEG, SVG, GIF) a `~/Pictures/iconos`** para que se muestren aleatoriamente.
 2. **Para mostrar una imagen aleatoria con neofetch:**
    ```sh
-   bash -c 'RANDOM_IMG="$(find "$HOME/Pictures" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | shuf -n 1)"; cp "$RANDOM_IMG" "$HOME/Pictures/random.png"; neofetch'
+   bash -c 'RANDOM_IMG="$(find "$HOME/Pictures/iconos" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.svg" -o -iname "*.gif" \) | shuf -n 1)"; cp "$RANDOM_IMG" "$HOME/Pictures/random.png"; neofetch'
    ```
 3. **Para mostrar una imagen aleatoria con fastfetch:**
    ```sh
-   bash -c 'RANDOM_IMG="$(find "$HOME/Pictures" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | shuf -n 1)"; cp "$RANDOM_IMG" "$HOME/Pictures/random.png"; fastfetch'
+   bash -c 'RANDOM_IMG="$(find "$HOME/Pictures/iconos" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.svg" -o -iname "*.gif" \) | shuf -n 1)"; cp "$RANDOM_IMG" "$HOME/Pictures/random.png"; fastfetch'
    ```
 
 Puedes poner estos comandos en un alias o script para mayor comodidad.
